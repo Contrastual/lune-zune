@@ -1,0 +1,3 @@
+[submodule "extern/luau-roblox"]
+	path = extern/luau-roblox
+	url = https://github.com/Scythe-Technology/luau-roblox.git
