@@ -1,7 +1,7 @@
 local roblox = {}
 local utilfunc = require("../utils/func")
 
-local luau_roblox = require("@roblox")
+local luau_roblox = require("./luau-roblox")
 
 roblox.deserializePlace = luau_roblox.deserializePlace
 roblox.deserializeModel = luau_roblox.deserializeModel
