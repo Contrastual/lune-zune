@@ -1,5 +1,5 @@
 {
   "aliases": {
-    "roblox": "./extern/luau-roblox/src"
+    "roblox": "./luau-roblox/src"
   }
 }
