@@ -1,0 +1,6 @@
+{
+  "aliases": {
+    "roblox": "./src/luau-roblox",
+    "polyfill: "./src/luau-roblox/polyfill"
+  }
+}
