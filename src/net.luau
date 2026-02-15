@@ -44,6 +44,16 @@ local function dourlenc(s)
   end)
 end
 
+local proto_TcpStream = {}
+proto_TcpStream.__index = proto_TcpStream
+proto_TcpStream.__metatable = "This metatable is locked"
+
+proto_TcpStream.read = utilfunc.THROW_NOT_SUPPORTED
+proto_TcpStream.write = utilfunc.THROW_NOT_SUPPORTED
+proto_TcpStream.close = utilfunc.THROW_NOT_SUPPORTED
+
+table.freeze(proto_TcpStream)
+
 function net.request(config: FetchParams): FetchResponse
   local url = config.url
   if not url then

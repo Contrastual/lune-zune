@@ -1,7 +1,6 @@
 local roblox = {}
 local utilfunc = require("../utils/func")
 
-print("Initializing luau-roblox")
 local luau_roblox = require("../extern/luau-roblox/src")
 
 roblox.deserializePlace = luau_roblox.deserializePlace

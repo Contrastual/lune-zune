@@ -32,12 +32,9 @@ fs.metadata = utilfunc.THROW_NOT_SUPPORTED
 fs.isFile = utilfunc.THROW_NOT_SUPPORTED
 
 function fs.isDir(path: string)
-  local s, metadata = pcall(zune.fs.metadata, path)
-  if not s then
-    return false
-  end
-  local kind = zune.fs.metadata(path).kind
-  return kind == "directory" or kind == "sym_link"
+  local s, metadata: Metadata = pcall(zune.fs.metadata, path)
+  if not s then return false end
+  return metadata.kind == "directory" or metadata.kind == "sym_link"
 end
 
 fs.move = utilfunc.THROW_NOT_SUPPORTED
