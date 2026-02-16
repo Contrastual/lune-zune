@@ -10,6 +10,11 @@ export type CompileOptions = {
   debugLevel: number,
 }
 
+--[[
+Compiles sourcecode into Luau bytecode
+
+An error will be thrown if the sourcecode given isn’t valid Luau code.
+]]
 function luau.compile(source: string, compileOptions: CompileOptions?)
   if type(compileOptions) ~= "table" then
     compileOptions = {}
@@ -22,6 +27,9 @@ function luau.compile(source: string, compileOptions: CompileOptions?)
   }))
 end
 
+--[[
+lune-zune does not support this function.
+]]
 luau.load = utilfunc.THROW_NOT_SUPPORTED
 
 return table.freeze(luau)

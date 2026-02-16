@@ -107,7 +107,7 @@ net.socket = utilfunc.THROW_NOT_SUPPORTED
 
 local function createHttpHandler(lune_handler)
   return function(req)
-    print(req)
+    -- print(req)
     local lune_response = lune_handler({
       path = req.path or "/",
       query = req.query or {},
