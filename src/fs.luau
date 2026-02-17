@@ -5,11 +5,11 @@ local fs = {}
 local utilfunc = require("../utils/func")
 
 --[[
-Reads a file at <code>path</code>.
+Reads a file at `path`.
 
 An error will be thrown in the following situations:
 
-- <code>path</code> does not point to an existing file.
+- `path` does not point to an existing file.
 - The current process lacks permissions to read the file.
 - Some other I/O error occurred.
 ]]
@@ -18,11 +18,11 @@ function fs.readFile(path: string): string
 end
 
 --[[
-Reads entries in a directory at <code>path</code>.
+Reads entries in a directory at `path`.
 
 An error will be thrown in the following situations:
 
-- <code>path</code> does not point to an existing directory.
+- `path` does not point to an existing directory.
 - The current process lacks permissions to read the contents of the directory.
 - Some other I/O error occurred.
 ]]
@@ -37,7 +37,7 @@ function fs.readDir(path: string)
 end
 
 --[[
-Writes to a file at <code>path</code>.
+Writes to a file at `path`.
 
 An error will be thrown in the following situations:
 
@@ -54,7 +54,7 @@ Creates a directory and its parent directories if they are missing.
 
 An error will be thrown in the following situations:
 
-- <code>path</code> already points to an existing file or directory.
+- `path` already points to an existing file or directory.
 - The current process lacks permissions to create the directory or its missing parents.
 - Some other I/O error occurred.
 ]]
@@ -67,7 +67,7 @@ Removes a file.
 
 An error will be thrown in the following situations:
 
-- <code>path</code> does not point to an existing file.
+- `path` does not point to an existing file.
 - The current process lacks permissions to remove the file.
 - Some other I/O error occurred.
 ]]
@@ -87,7 +87,7 @@ Checks if a given path is a file.
 
 An error will be thrown in the following situations:
 
-- The current process lacks permissions to read at <code>path</code>.
+- The current process lacks permissions to read at `path`.
 - Some other I/O error occurred.
 ]]
 function fs.isFile(path: string)
@@ -101,7 +101,7 @@ Checks if a given path is a directory.
 
 An error will be thrown in the following situations:
 
-- The current process lacks permissions to read at <code>path</code>.
+- The current process lacks permissions to read at `path`.
 - Some other I/O error occurred.
 ]]
 function fs.isDir(path: string)

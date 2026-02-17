@@ -54,6 +54,11 @@ proto_TcpStream.close = utilfunc.THROW_NOT_SUPPORTED
 
 table.freeze(proto_TcpStream)
 
+--[[
+Sends an HTTP request using the given url and / or parameters, and returns a dictionary that describes the response received.
+
+Only throws an error if a miscellaneous network or I/O error occurs, never for unsuccessful status codes.
+]]
 function net.request(config: FetchParams): FetchResponse
   local url = config.url
   if not url then
@@ -125,6 +130,11 @@ local function createHttpHandler(lune_handler)
   end
 end
 
+--[[
+Creates an HTTP server that listens on the given `port`.
+
+This will not block and will keep listening for requests on the given `port` until the `stop` function on the returned `ServeHandle` has been called.
+]]
 function net.serve(port: number, handlerOrConfig: () -> () | ServeConfig)
   local config = {
     port = port,
@@ -152,7 +162,14 @@ function net.serve(port: number, handlerOrConfig: () -> () | ServeConfig)
   })
 end
 
+--[[
+lune-zune does not support this function.
+]]
 net.urlEncode = utilfunc.THROW_NOT_SUPPORTED
+
+--[[
+lune-zune does not support this function.
+]]
 net.urlDecode = utilfunc.THROW_NOT_SUPPORTED
 
 url_encode = {

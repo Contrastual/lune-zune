@@ -14,6 +14,9 @@ proto_Regex.replaceAll = utilfunc.THROW_NOT_SUPPORTED
 
 table.freeze(proto_Regex)
 
+--[[
+lune-zune does not support this function.
+]]
 regex.new = utilfunc.THROW_NOT_SUPPORTED
 
 return table.freeze(regex)
