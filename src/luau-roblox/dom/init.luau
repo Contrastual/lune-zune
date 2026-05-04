@@ -21,16 +21,22 @@ function dom.deserialize(data: string | buffer): roblox.Document
     end
     assert(type(data) == "buffer", "Internal DOM Error");
 
-    if (
-        buffer.len(data) > BINARY_HEADER_LEN
-        and buffer.readstring(data, 0, BINARY_HEADER_LEN) == binary.header
-    ) then
-        -- Binary
-        return binary.deserialize(data, BINARY_HEADER_LEN);
-    else
-        -- XML
-        return xml.deserialize(data);
+    if type(data) == "buffer" then
+        if buffer.len(data) > 7 then
+            if buffer.readstring(data, 0, 7) == "<roblox" then
+                local header7 = buffer.readstring(data, 7, 1)
+                if header7 == "!" then
+                    -- Binary
+                    return binary.deserialize(data, BINARY_HEADER_LEN);
+                elseif header7 == "" then
+                    -- XML
+                    return xml.deserialize(data);
+                end
+            end
+        end
     end
+
+    error("Internal DOM Error")
 end
 
 function dom.serialize(document: roblox.Document, format: ("XML" | "BINARY")?): buffer

@@ -99,12 +99,20 @@ function net.request(config: FetchParams): FetchResponse
   end
   -- print(res)
 
+  local ret_body = res.body
+  if type(ret_body) == "buffer" then
+    ret_body = buffer.tostring(ret_body)
+  end
+  if #ret_body <= 0 then
+    ret_body = ""
+  end
+
   return {
     ok = res.ok,
     statusCode = res.status_code,
     statusMessage = res.status_reason,
     headers = res.headers,
-    body = res.body
+    body = ret_body
   }
 end
 
